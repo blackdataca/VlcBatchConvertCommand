@@ -1,6 +1,6 @@
 # VLC Batch Convert Command
 Powershell command line for batch converting file using VLC
-By default, the script converts all *.mts files to *.mp4 under currect directory recursively
+By default, the script converts all *.mts files to *.mp4 under currect directory and sub-directories recursively.
 
 ## Run in Powershell
 ```
