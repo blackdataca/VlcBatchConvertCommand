@@ -14,3 +14,6 @@ Modify source file format in line 1. Defaut is *.mts
 ```
 foreach($inputFile in get-childitem -recurse -Filter *.mts)
 ```
+
+## If target file exists
+The script can be re-run safely, it skips converted files.
