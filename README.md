@@ -10,7 +10,7 @@ cd to the media dir
 ```
 
 ## Change source file format
-Modify source file format in line 1 as needed. Defaut is *.mts
+Modify source file format in line 1 as needed. Defaut is *.mts. It can be any format VideoLan supports.
 ```
 foreach($inputFile in get-childitem -recurse -Filter *.mts)
 ```
