@@ -3,7 +3,7 @@ foreach($inputFile in get-childitem -recurse -Filter *.mts)
 	$outputFileName = [System.IO.Path]::GetFileNameWithoutExtension($inputFile.FullName) + ".mp4";
 	$outputFileName = [System.IO.Path]::Combine($inputFile.DirectoryName, $outputFileName);
 
-	Write-Host $inputFile " " -NoNewline
+	Write-Host $inputFile.FullName " " -NoNewline
 	if ([System.IO.File]::Exists($outputFileName))
 	{
 		 Write-Host "skip" 
@@ -11,11 +11,8 @@ foreach($inputFile in get-childitem -recurse -Filter *.mts)
 	else
 	{
 		Write-Host "converting..." -NoNewline
-		$programFiles = ${env:ProgramFiles};
 
-		if($programFiles -eq $null) { $programFiles = $env:ProgramFiles; }
-
-		$processName = $programFiles + "\VideoLAN\VLC\vlc.exe"
+		$processName = ${env:ProgramFiles} + "\VideoLAN\VLC\vlc.exe"
 		
 		$processArgs = "-I dummy -vvv `"$($inputFile.FullName)`" --sout=#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100,vcodec=h264}:standard{access=file,mux=mp4,dst=`"$outputFileName`"} vlc://quit"
 
