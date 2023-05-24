@@ -16,10 +16,7 @@ foreach($inputFile in get-childitem -recurse -Filter $inputFilter)
 
 		$processName = ${env:ProgramFiles} + "\VideoLAN\VLC\vlc.exe"
 		
-		#Uncomment to hide UI 
-		#$processArgs = "-I dummy"
-		
-		$processArgs = $processArgs + " -vv `"$($inputFile.FullName)`" --sout=#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100,vcodec=h264}:standard{access=file,mux=mp4,dst=`"$outputFileName`"} --rc-show-pos vlc://quit"
+		$processArgs = "-I dummy -vv `"$($inputFile.FullName)`" --sout=#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100,vcodec=h264}:standard{access=file,mux=mp4,dst=`"$outputFileName`"} vlc://quit"
 
 		start-process $processName $processArgs -wait
 		Write-Host "done"
