@@ -1,5 +1,5 @@
 $inputFilter = "*.mts"
-Write-Host "VLC Batch Convert to mp4 by BlackData 2023 To conver all files, change $inputFilter to *.*"
+Write-Host "VLC Batch Convert to mp4 by BlackData 2023 To conver all files, change value of $inputFilter to *.*"
 foreach($inputFile in get-childitem -recurse -Filter $inputFilter)
 {
 	$outputFileName = [System.IO.Path]::GetFileNameWithoutExtension($inputFile.FullName) + ".mp4";
