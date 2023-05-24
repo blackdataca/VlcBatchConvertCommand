@@ -1,4 +1,6 @@
-foreach($inputFile in get-childitem -recurse -Filter *.mts)
+$inputFilter = "*.mts"
+Write-Host "VLC Batch Convert to mp4 by BlackData To conver all files, change $inputFilter to *.*"
+foreach($inputFile in get-childitem -recurse -Filter $inputFilter)
 {
 	$outputFileName = [System.IO.Path]::GetFileNameWithoutExtension($inputFile.FullName) + ".mp4";
 	$outputFileName = [System.IO.Path]::Combine($inputFile.DirectoryName, $outputFileName);
