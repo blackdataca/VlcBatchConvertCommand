@@ -19,4 +19,4 @@ foreach($inputFile in get-childitem -recurse -Filter *.mts)
 The script can be re-run safely, it skips converted files.
 
 ## If interrupt the script during execution
-By Ctrl-C or bad file, delete the unfinished output file (if file is still in use, use PowerToy to investigate), then re-run the script again.
+By Ctrl-C or bad file, delete the unfinished output file (if file is still in use, use PowerToys to investigate), then re-run the script again.
